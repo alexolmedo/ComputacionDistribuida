@@ -8,12 +8,13 @@ s.connect((host, port))
 f = open('recibe.txt','wb')
 print 'Conectado'
 l = s.recv(1024)
-conexion = True
 
-while (str(l)!="end"):
+while (True):
     print 'Recibiendo...'
     f.write(l)
     l = s.recv(1024)
+    if str(l) == "EOF":
+        break
     
 f.close()
 print "Se acabo de recibir"
