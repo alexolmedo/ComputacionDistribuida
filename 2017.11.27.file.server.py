@@ -12,7 +12,7 @@ print 'Se obtuvo una conexion desde ', addr
 while (l):
     print 'Enviando...'
     c.send(l)
-    l = f.read(1024)
+    l = f.readline()
 c.send("end")
 f.close()
 print "Se acabo de enviar"

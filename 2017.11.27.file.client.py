@@ -9,11 +9,12 @@ f = open('recibe.txt','wb')
 print 'Conectado'
 l = s.recv(1024)
 conexion = True
+
 while (str(l)!="end"):
     print 'Recibiendo...'
     f.write(l)
     l = s.recv(1024)
-    print str(l)
+    
 f.close()
 print "Se acabo de recibir"
 s.close()
