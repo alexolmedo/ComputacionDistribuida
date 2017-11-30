@@ -1,0 +1,4 @@
+Hola, este es un documento de texto
+Esta es la segunda linea
+Esta es linea numero 3
+Esta es la linea final, la numero 4
