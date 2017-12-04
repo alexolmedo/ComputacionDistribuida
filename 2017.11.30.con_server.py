@@ -20,9 +20,12 @@ print 'Socket bind complete'
 #Start listening on socket
 s.listen(10)
 print 'Socket now listening'
+
+arregloDatos = []
  
 #Function for handling connections. This will be used to create threads
 def clientthread(conn):
+    global arregloDatos
     #Sending message to connected client
     conn.send('Welcome to the server. Type something and hit enter\n') #send only takes string
      
@@ -31,11 +34,12 @@ def clientthread(conn):
          
         #Receiving from client
         data = conn.recv(1024)
-        reply = 'OK...' + data
+        arregloDatos.append(data)
+        reply = 'OK...' + arregloDatos[-1]
         if not data: 
             break
      
-        conn.sendall(reply)
+        conn.send(reply)
      
     #came out of loop
     conn.close()
