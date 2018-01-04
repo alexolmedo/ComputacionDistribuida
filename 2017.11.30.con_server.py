@@ -34,12 +34,19 @@ def clientthread(conn):
          
         #Receiving from client
         data = conn.recv(1024)
-        arregloDatos.append(data)
-        reply = 'OK...' + arregloDatos[-1]
+        try:
+            reply = 'OK...' + arregloDatos[-1]
+            conn.send(reply)
+            pass
+        except IndexError:
+            conn.send("Nada aun")
+            pass
+        
         if not data: 
             break
      
-        conn.send(reply)
+        
+        arregloDatos.append(data)
      
     #came out of loop
     conn.close()
