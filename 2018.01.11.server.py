@@ -24,7 +24,7 @@ class ThreadedServer(object):
                 data = client.recv(size)
                 if data:
                     # Responder con los mismos datos recibidos
-                    respuesta = "Servidor dice " + data
+                    respuesta = data
                     client.send(respuesta)
                 else:
                     raise error('Cliente desconectado')
