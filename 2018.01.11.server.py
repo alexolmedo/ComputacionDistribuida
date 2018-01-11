@@ -25,7 +25,13 @@ class ThreadedServer(object):
                 if data:
                     # Responder con los mismos datos recibidos
                     respuesta = data
+
+                    logOut = open('log.txt', 'a')
+                    logOut.write(data + "\n")
+
                     client.send(respuesta)
+                    client.shutdown(socket.SHUT_RDWR)
+                    client.close()
                 else:
                     raise error('Cliente desconectado')
             except:
@@ -33,6 +39,9 @@ class ThreadedServer(object):
                 return False
 
 if __name__ == "__main__":
+    #Crear un archivo de log vacio
+    open('log.txt', 'w').close()
+
     while True:
         port_num = input("Puerto? ")
         try:

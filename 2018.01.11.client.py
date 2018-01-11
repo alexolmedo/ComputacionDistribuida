@@ -1,13 +1,13 @@
 import socket
 import sys
 
-print sys.argv[0]
+# El cliente se ejecuta con cliente.py [IP] [Puerto] [Mensaje] 
+
 sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-# host = raw_input("Nombre de host o IP del servidor? ")
+
 host = sys.argv[1]
 port = int(sys.argv[2])
 data = sys.argv[3]
-print host, port, data
 
 sock.connect((host,port))
 
