@@ -1,5 +1,6 @@
 import socket
 import threading
+import sys
 
 class ThreadedServer(object):
     def __init__(self, host, port):
@@ -43,9 +44,8 @@ if __name__ == "__main__":
     open('log.txt', 'w').close()
 
     while True:
-        port_num = input("Puerto? ")
         try:
-            port_num = int(port_num)
+            port_num = int(sys.argv[1])
             break
         except ValueError:
             pass
