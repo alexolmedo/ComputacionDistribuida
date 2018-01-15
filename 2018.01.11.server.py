@@ -31,8 +31,8 @@ class ThreadedServer(object):
                     logOut.write(data + "\n")
 
                     client.send(respuesta)
-                    client.shutdown(socket.SHUT_RDWR)
-                    client.close()
+                    #client.shutdown(socket.SHUT_RDWR)
+                    #client.close()
                 else:
                     raise error('Cliente desconectado')
             except:
